@@ -1,0 +1,246 @@
+/*
+ * MODERN CSS TEMPLATE FOR DUSTBUSTERS
+ * Mobile-First Approach
+ */
+
+/* === 1. CSS Reset and Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Crucial for responsive design */
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Modern, clean font */
+    line-height: 1.6;
+    color: #333; /* Dark text for readability */
+    background-color: #f8f8f8; /* Light background */
+}
+
+a {
+    color: #007bff; /* Primary link color (e.g., a nice blue) */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* === 2. Header and Navigation (Mobile) === */
+header {
+    background-color: #0056b3; /* DustBusters Blue */
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 1.5em;
+}
+
+nav ul {
+    list-style: none;
+    /* Hide navigation links by default on mobile (will use JS for a toggle) */
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Below the header */
+    left: 0;
+    width: 100%;
+    background-color: #0056b3;
+    z-index: 999;
+}
+
+nav ul.active {
+    display: flex; /* Show menu when JS toggles .active class */
+}
+
+nav ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Menu/Hamburger Icon placeholder (Needs to be added to HTML and styled) */
+.menu-toggle {
+    font-size: 2em;
+    cursor: pointer;
+    display: block; /* Show hamburger icon on mobile */
+}
+
+/* === 3. Main Layout & Typography === */
+main {
+    padding: 20px;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #0056b3;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+/* Call-to-Action Buttons */
+.cta-button {
+    display: inline-block;
+    background-color: #28a745; /* Green for action */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.cta-button:hover {
+    background-color: #218838;
+    text-decoration: none;
+}
+
+/* === 4. Section Styling === */
+
+/* Hero Section */
+.hero {
+    background: url('../images/hero-bg.jpg') no-repeat center center/cover; /* Placeholder image */
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+.hero h2 {
+    color: white;
+    font-size: 2.5em;
+}
+
+/* Service Cards (Vertical stack on mobile) */
+.service-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.service-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* FAQ Accordion (details element) */
+.faq-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.faq-item summary {
+    font-weight: bold;
+    padding: 15px;
+    cursor: pointer;
+    outline: none;
+    list-style: none; /* Hide default arrow */
+}
+
+/* === 5. Contact Form === */
+.quote-form input,
+.quote-form select,
+.quote-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* === 6. Footer === */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer a {
+    color: #999;
+}
+
+/*
+ * === 7. Media Query for Tablets and Desktops (Breakpoint: 768px) ===
+ * This shifts the layout from a single column (mobile) to a multi-column grid.
+ */
+@media (min-width: 768px) {
+    
+    /* Navigation (Desktop) */
+    header {
+        padding: 15px 40px;
+    }
+    
+    .menu-toggle {
+        display: none; /* Hide hamburger icon */
+    }
+    
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        background: none;
+    }
+
+    nav ul li a {
+        padding: 0 15px;
+        border-top: none;
+    }
+    
+    /* Layout Grids */
+    main {
+        padding: 40px 80px;
+    }
+
+    /* Homepage Feature Grid */
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        text-align: center;
+    }
+    
+    /* Service Cards Grid */
+    .service-cards {
+        flex-direction: row;
+        gap: 30px;
+    }
+    
+    /* Team Grid */
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    /* Contact Page Layout (Two columns) */
+    .contact-form-section {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 40px;
+    }
+}
