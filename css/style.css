@@ -1,6 +1,6 @@
 /*
- * MODERN CSS TEMPLATE FOR DUSTBUSTERS
- * Mobile-First Approach
+ * DUSTBUSTERS - FULL CSS STYLE SHEET (THEMED & RESPONSIVE)
+ * Includes: CSS Reset, Mobile-First Layout, Theme Styling, and Hero Image Fixes.
  */
 
 /* === 1. CSS Reset and Base Styles === */
@@ -11,24 +11,26 @@
 }
 
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif; /* Modern, clean font */
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
-    color: #333; /* Dark text for readability */
-    background-color: #f8f8f8; /* Light background */
+    color: #333; 
+    background-color: #f8f8f8; 
 }
 
 a {
-    color: #007bff; /* Primary link color (e.g., a nice blue) */
+    color: #FF0000; /* Theme link color (Red) */
     text-decoration: none;
+    transition: color 0.3s;
 }
 
 a:hover {
+    color: #cc0000;
     text-decoration: underline;
 }
 
 /* === 2. Header and Navigation (Mobile) === */
 header {
-    background-color: #0056b3; /* DustBusters Blue */
+    background-color: #333; /* Dark header - THEME COLOR */
     color: white;
     padding: 15px 20px;
     display: flex;
@@ -37,27 +39,34 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 header h1 {
     font-size: 1.5em;
+    color: white;
+}
+
+.menu-toggle {
+    font-size: 2em;
+    cursor: pointer;
+    display: block; 
 }
 
 nav ul {
     list-style: none;
-    /* Hide navigation links by default on mobile (will use JS for a toggle) */
     display: none; 
     flex-direction: column;
     position: absolute;
-    top: 60px; /* Below the header */
+    top: 60px; 
     left: 0;
     width: 100%;
-    background-color: #0056b3;
+    background-color: #333;
     z-index: 999;
 }
 
 nav ul.active {
-    display: flex; /* Show menu when JS toggles .active class */
+    display: flex; /* Shown when toggled by JS */
 }
 
 nav ul li a {
@@ -65,14 +74,7 @@ nav ul li a {
     padding: 10px 20px;
     color: white;
     text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Menu/Hamburger Icon placeholder (Needs to be added to HTML and styled) */
-.menu-toggle {
-    font-size: 2em;
-    cursor: pointer;
-    display: block; /* Show hamburger icon on mobile */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* === 3. Main Layout & Typography === */
@@ -83,7 +85,7 @@ main {
 h2 {
     font-size: 2em;
     margin-bottom: 20px;
-    color: #0056b3;
+    color: #333;
     text-align: center;
 }
 
@@ -91,43 +93,84 @@ h3 {
     font-size: 1.5em;
     margin-top: 25px;
     margin-bottom: 15px;
+    color: #FF0000; /* THEME ACCENT COLOR (Red) */
 }
 
 /* Call-to-Action Buttons */
 .cta-button {
     display: inline-block;
-    background-color: #28a745; /* Green for action */
-    color: white;
     padding: 12px 25px;
     border-radius: 5px;
     font-weight: bold;
     text-transform: uppercase;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, box-shadow 0.3s;
     margin-top: 15px;
     text-align: center;
 }
 
-.cta-button:hover {
-    background-color: #218838;
+/* Themed CTA Button Styling */
+.cta-themed-button {
+    background-color: #FF0000; /* THEME PRIMARY CTA COLOR (RED) */
+    color: white;
+}
+
+.cta-themed-button:hover {
+    background-color: #cc0000;
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.7); /* Glowing effect */
     text-decoration: none;
 }
 
-/* === 4. Section Styling === */
+/* === 4. Section Styling (Theme Overrides) === */
 
-/* Hero Section */
-.hero {
-    background: url('../images/hero-bg.jpg') no-repeat center center/cover; /* Placeholder image */
+/* Themed Hero Section */
+.themed-hero {
+    /* Background relies on an image in the images folder. */
+    background: #222 url('../images/dark-texture.jpg') no-repeat center center/cover; 
     color: white;
-    padding: 60px 20px;
+    padding: 80px 20px;
     text-align: center;
     margin-bottom: 30px;
     border-radius: 8px;
+    position: relative; /* For positioning elements inside */
 }
 
-.hero h2 {
-    color: white;
-    font-size: 2.5em;
+/* Hero Heading: WHO YA GONNA CALL? */
+.themed-hero h1 {
+    font-family: Impact, sans-serif; 
+    font-size: 3em; 
+    color: #FF0000; /* Bold Red */
+    letter-spacing: 5px; 
+    /* Dual shadow for contrast and depth */
+    text-shadow: 3px 3px #FFD700, -2px -2px #000; 
+    margin-bottom: 5px;
 }
+
+/* Tagline text */
+.themed-hero .tagline {
+    font-size: 1.2em;
+    color: #ccc;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* Answer text: DUSTBUSTERS! */
+.themed-hero .answer {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #FFD700; /* Gold/Yellow answer */
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* Style for the optional <img> tag (hero-graphic) */
+.hero-graphic {
+    max-width: 150px; 
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 50%; /* Makes a round logo */
+    border: 5px solid #FFD700; /* Gold/Yellow border */
+}
+
 
 /* Service Cards (Vertical stack on mobile) */
 .service-cards {
@@ -143,7 +186,13 @@ h3 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* FAQ Accordion (details element) */
+.service-card ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+/* FAQ Accordion */
 .faq-item {
     background-color: white;
     border: 1px solid #ddd;
@@ -156,10 +205,14 @@ h3 {
     padding: 15px;
     cursor: pointer;
     outline: none;
-    list-style: none; /* Hide default arrow */
+    list-style: none;
 }
 
-/* === 5. Contact Form === */
+.faq-item p {
+    padding: 0 15px 15px 15px;
+}
+
+/* === 5. Contact Form & Layout === */
 .quote-form input,
 .quote-form select,
 .quote-form textarea {
@@ -168,6 +221,13 @@ h3 {
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+/* Contact layout for mobile (stacked) */
+.contact-form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 /* === 6. Footer === */
@@ -180,12 +240,11 @@ footer {
 }
 
 footer a {
-    color: #999;
+    color: #FFD700; /* Gold/Yellow footer links */
 }
 
 /*
  * === 7. Media Query for Tablets and Desktops (Breakpoint: 768px) ===
- * This shifts the layout from a single column (mobile) to a multi-column grid.
  */
 @media (min-width: 768px) {
     
@@ -195,7 +254,7 @@ footer a {
     }
     
     .menu-toggle {
-        display: none; /* Hide hamburger icon */
+        display: none; 
     }
     
     nav ul {
@@ -211,9 +270,23 @@ footer a {
         border-top: none;
     }
     
-    /* Layout Grids */
+    /* Main Content Padding */
     main {
         padding: 40px 80px;
+    }
+    
+    /* Hero Text Size */
+    .themed-hero h1 {
+        font-size: 5em;
+        letter-spacing: 10px;
+    }
+    
+    .hero-graphic {
+        max-width: 250px; /* Larger on desktop */
+    }
+    
+    .themed-hero {
+        padding: 100px 80px; /* More vertical space on desktop */
     }
 
     /* Homepage Feature Grid */
